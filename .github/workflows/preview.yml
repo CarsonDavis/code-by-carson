@@ -1,0 +1,68 @@
+name: PR Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, closed]
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+
+env:
+  AWS_REGION: us-east-1
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Get preview bucket info
+        id: bucket
+        run: |
+          BUCKET=$(aws cloudformation describe-stacks \
+            --stack-name CodeByCarsonStack \
+            --query "Stacks[0].Outputs[?OutputKey=='PreviewBucketName'].OutputValue" \
+            --output text)
+          URL=$(aws cloudformation describe-stacks \
+            --stack-name CodeByCarsonStack \
+            --query "Stacks[0].Outputs[?OutputKey=='PreviewBucketUrl'].OutputValue" \
+            --output text)
+          echo "name=$BUCKET" >> "$GITHUB_OUTPUT"
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+
+      # ── Deploy preview on open/synchronize ──────────────────
+      - name: Upload preview
+        if: github.event.action != 'closed'
+        run: |
+          aws s3 sync site/ "s3://${{ steps.bucket.outputs.name }}/pr-${{ github.event.number }}/" --delete
+
+      - name: Comment preview URL
+        if: github.event.action != 'closed'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: preview
+          message: |
+            **Preview deployed!**
+            ${{ steps.bucket.outputs.url }}/pr-${{ github.event.number }}/index.html
+
+      # ── Teardown on close ───────────────────────────────────
+      - name: Delete preview
+        if: github.event.action == 'closed'
+        run: |
+          aws s3 rm "s3://${{ steps.bucket.outputs.name }}/pr-${{ github.event.number }}/" --recursive
+
+      - name: Comment teardown
+        if: github.event.action == 'closed'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: preview
+          message: |
+            **Preview torn down** (PR closed).

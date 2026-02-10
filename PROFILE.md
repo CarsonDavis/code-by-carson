@@ -8,7 +8,11 @@ Senior software developer in Huntsville, Alabama. Engineer by training, obsessiv
 ## Professional
 
 - **Day job**: Senior software developer. Python, data pipelines, ML models.
-- **Engineering background**: Studied engineering, worked as a researcher at the National Space Sciences and Technology Center (NSSTC). Worked on a miniature blast furnace testing the Bosch life-support process for Mars applications (2018).
+- **NASA research (2019-2024)**: For a guy who blogs about whetstones and cleavers, there's a surprisingly legit academic career buried in here. 33 publications and presentations through NASA Marshall Space Flight Center / NSSTC, presented at AGU, AMS, EGU, IGARSS, and SoutheastCon. Three main threads:
+  - **Science Discovery Engine** -- Built the NLP and search infrastructure behind NASA's open-science discovery platform. Taught machines to understand Earth science metadata so scientists wouldn't have to dig through seventeen incompatible catalogs.
+  - **CASEI** (Catalog of Archived Suborbital Earth Science Investigations) -- Designed and built the technical architecture for NASA's inventory of airborne and field data. Led the AGU 2022 talk on the system design, which is notably less exciting than his blog post about building a mattress.
+  - **NLP/ML for Earth Science** -- Word embeddings (ES2Vec), knowledge graphs, semantic parsing, verb sense disambiguation. Applied the same obsessive thoroughness he brings to analyzing cleaver blade geometries, but to NASA metadata. First-author on several posters.
+- **Earlier engineering**: Helped build a miniature blast furnace testing the Bosch life-support process for Mars (2018). Because of course he did.
 - **AI/LLM fluency**: Heavy user of Claude Code, OpenAI, Mistral, DeepSeek. Builds AI-assisted projects with extensive upfront documentation. Appeared on the *No Dumb Questions* podcast (with Destin Sandlin of SmarterEveryDay) discussing AI.
 - **Web dev**: Self-described as having "approximately zero web development skills," but ships things anyway (lens equivalence calculator, this portfolio site).
 

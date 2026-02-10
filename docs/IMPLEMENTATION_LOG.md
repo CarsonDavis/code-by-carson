@@ -62,3 +62,24 @@ After that, set the `AWS_ROLE_ARN` GitHub secret to the output `GitHubActionsRol
 ### New files
 - `cdk/cdk.context.json` — cached Route 53 hosted zone lookup (committed for CI)
 - `.gitignore` — added `cdk/outputs.json`
+
+## 2026-02-09 — Landing Page Redesign
+### What changed
+Evolved the minimal portfolio page into a full personal landing page with multiple sections:
+
+- **Hero**: Updated tagline to "Engineer, researcher, writer, maker. Building software, collecting cameras, and cooking dinner." Nav links changed to GitHub, Blog, Scholar.
+- **Things I've Built**: Renamed from "Projects". Same 3 cards (Bass Practice, Lens Calculator, Goodreads Stats).
+- **Writing** (new): 4 featured blog posts as a clean text list — Book Cover Design, Shooting Film, Troublesome Translations, Kitchen Knives. Links to madebycarson.com.
+- **Research** (new): NASA/NSSTC blurb, "33 publications and presentations" stat, Google Scholar link. Displayed as a styled card.
+- **Cooking** (new): Instagram grid screenshot image + link to @carsons_cooking. Image file (`site/images/instagram-grid.png`) to be provided by user.
+- **Media** (new): No Dumb Questions podcast #199, COVID Face Shields news interview. Compact text list.
+- **Footer**: Added GitHub, Blog, Scholar, Instagram link row above copyright.
+
+### Files modified
+- `site/index.html` — restructured from 1 section to 6 content sections
+- `site/style.css` — added writing, research, cooking, media, footer-links styles; added `--section-max` variable for narrower content sections
+
+### Verification
+- Local preview via `python3 -m http.server` — all sections render correctly
+- Cooking section shows broken image (expected — user needs to provide `instagram-grid.png`)
+- All external links verified in HTML (correct URLs for blog posts, Scholar, Instagram, podcast, YouTube)

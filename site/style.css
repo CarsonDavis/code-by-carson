@@ -16,6 +16,7 @@
   --text-muted: #888;
   --accent: #8ab4f8;
   --accent-hover: #aecbfa;
+  --section-max: 720px;
 }
 
 html {
@@ -60,7 +61,7 @@ a:hover {
 .tagline {
   color: var(--text-muted);
   font-size: 1.1rem;
-  max-width: 480px;
+  max-width: 520px;
   margin: 0 auto 1.5rem;
 }
 
@@ -81,15 +82,31 @@ a:hover {
   text-decoration: none;
 }
 
-/* ── Projects ───────────────────────────────────────────────── */
+/* ── Shared section styles ─────────────────────────────────── */
 
-.projects {
-  max-width: 960px;
+.projects,
+.deep-dives,
+.research,
+.cooking,
+.media {
+  max-width: var(--section-max);
   margin: 0 auto;
   padding: 0 1.5rem 4rem;
 }
 
-.projects h2 {
+.projects,
+.deep-dives,
+.research,
+.cooking,
+.media {
+  max-width: 960px;
+}
+
+.projects h2,
+.deep-dives h2,
+.research h2,
+.cooking h2,
+.media h2 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
@@ -97,6 +114,8 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+
+/* ── Projects grid ─────────────────────────────────────────── */
 
 .grid {
   display: grid;
@@ -169,6 +188,182 @@ a:hover {
   font-size: 0.85rem;
 }
 
+/* ── Deep Dives ────────────────────────────────────────────── */
+
+.dives-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.dive {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+  color: inherit;
+}
+
+.dive:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+.dive-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  background: var(--bg);
+}
+
+.dive-text {
+  padding: 1rem 1.25rem;
+}
+
+.dive-text h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.dive-text p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.section-more {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.section-more a {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.section-more a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Research ──────────────────────────────────────────────── */
+
+.research-stat {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.pub-list {
+  list-style: none;
+}
+
+.pub-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.pub-list li:first-child {
+  padding-top: 0;
+}
+
+.pub-list li:last-child {
+  border-bottom: none;
+}
+
+.pub-title {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.pub-venue {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+/* ── Cooking ──────────────────────────────────────────────── */
+
+.cooking-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.cooking-grid-link {
+  display: block;
+  flex: 0 0 60%;
+}
+
+.cooking-grid-img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.cooking-text {
+  flex: 1;
+}
+
+.cooking-desc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Media ────────────────────────────────────────────────── */
+
+.media-list {
+  list-style: none;
+}
+
+.media-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.media-list li:first-child {
+  padding-top: 0;
+}
+
+.media-list li:last-child {
+  border-bottom: none;
+}
+
+.media-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.15s;
+}
+
+.media-title:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.media-list p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
 /* ── Footer ─────────────────────────────────────────────────── */
 
 footer {
@@ -177,6 +372,24 @@ footer {
   padding: 2rem 1.5rem;
   color: var(--text-muted);
   font-size: 0.85rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+  text-decoration: none;
 }
 
 /* ── Responsive ─────────────────────────────────────────────── */
@@ -192,5 +405,18 @@ footer {
 
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .dives-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cooking-layout {
+    flex-direction: column;
+  }
+
+  .cooking-grid-link {
+    flex: none;
+    width: 100%;
   }
 }

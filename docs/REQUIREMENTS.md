@@ -44,8 +44,16 @@ A minimalist portfolio website showcasing Carson's coding projects. Inspired by
 - [x] PR preview environments with comment links — workflow exists (not yet tested)
 - [x] OIDC-based AWS authentication — working
 
+### R8 - Landing Page Sections
+- [x] Writing section — 4 featured blog posts with "More on the blog" link
+- [x] Research section — NASA/NSSTC blurb, publication count, Google Scholar link
+- [x] Cooking section — Instagram grid image + @carsons_cooking link
+- [ ] Cooking section image — user needs to provide `site/images/instagram-grid.png`
+- [x] Media section — No Dumb Questions podcast, COVID Face Shields interview
+- [x] Updated hero tagline and nav links
+- [x] Footer link row (GitHub, Blog, Scholar, Instagram)
+
 ## Non-Goals (for now)
-- No press section
 - No tutorials section
 - No blog integration (just link out)
 - No CMS — project data lives in HTML
@@ -60,5 +68,5 @@ A minimalist portfolio website showcasing Carson's coding projects. Inspired by
 - **Auth**: GitHub OIDC (no long-lived AWS access keys)
 
 ## Open Questions
-- Any additional projects to include?
 - Thumbnail images for project cards (currently placeholder)
+- Instagram grid screenshot needed for cooking section

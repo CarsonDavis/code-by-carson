@@ -33,16 +33,16 @@ A minimalist portfolio website showcasing Carson's coding projects. Inspired by
 - [x] Link to cooking Instagram
 
 ### R6 - Infrastructure
-- [x] S3 + CloudFront hosting with OAC (not OAI)
-- [x] ACM certificate with DNS validation
-- [x] Route 53 A records (apex + www)
-- [x] GitHub OIDC for Actions auth (no long-lived keys)
-- [x] Preview bucket for PR previews
+- [x] S3 + CloudFront hosting with OAC (not OAI) — deployed, CloudFront dist E1SYFVZGZC91Z9
+- [x] ACM certificate with DNS validation — issued, covers apex + www
+- [x] Route 53 A records (apex + www) — live, both resolve
+- [x] GitHub OIDC for Actions auth (no long-lived keys) — imports existing provider
+- [x] Preview bucket for PR previews — created (not yet tested with a real PR)
 
 ### R7 - CI/CD
-- [x] Deploy on push to main (CDK deploy + S3 sync + CF invalidation)
-- [x] PR preview environments with comment links
-- [x] OIDC-based AWS authentication
+- [x] Deploy on push to master (CDK deploy + S3 sync + CF invalidation) — verified, run 21849957464
+- [x] PR preview environments with comment links — workflow exists (not yet tested)
+- [x] OIDC-based AWS authentication — working
 
 ## Non-Goals (for now)
 - No press section

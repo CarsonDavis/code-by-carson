@@ -40,3 +40,25 @@ npx cdk bootstrap aws://ACCOUNT_ID/us-east-1
 npx cdk deploy
 ```
 After that, set the `AWS_ROLE_ARN` GitHub secret to the output `GitHubActionsRoleArn` value, and CI/CD will handle subsequent deploys.
+
+## 2026-02-09 — Initial Deploy & Bootstrap
+### Fixes applied during deploy
+- **`app.py`**: Added explicit `account="420665616125"` to `cdk.Environment` — required by `HostedZone.from_lookup`
+- **`portfolio_stack.py`**: Moved `response_headers_policy` from `Distribution()` kwargs into `BehaviorOptions()` — it's not a top-level Distribution param
+- **`portfolio_stack.py`**: Changed `iam.OpenIdConnectProvider()` (creates new) to `OpenIdConnectProvider.from_open_id_connect_provider_arn()` (imports existing) — the GitHub OIDC provider already existed in the account
+
+### Deploy steps completed
+1. CDK bootstrap (`cdk bootstrap aws://420665616125/us-east-1`) — CDKToolkit stack updated
+2. CDK deploy — created S3 buckets, CloudFront (E1SYFVZGZC91Z9), ACM cert, Route 53 records, IAM role
+3. Uploaded `site/` to S3 via `aws s3 sync`
+4. Set `AWS_ROLE_ARN` GitHub secret via `gh secret set`
+5. Pushed to master — GitHub Actions deploy workflow passed (run 21849957464)
+
+### Verification
+- https://codebycarson.com — HTTP 200, served via CloudFront, security headers present
+- https://www.codebycarson.com — HTTP 200, same content
+- GitHub Actions deploy workflow: all steps green (OIDC auth, CDK deploy, S3 sync, CF invalidation)
+
+### New files
+- `cdk/cdk.context.json` — cached Route 53 hosted zone lookup (committed for CI)
+- `.gitignore` — added `cdk/outputs.json`

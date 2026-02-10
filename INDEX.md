@@ -12,10 +12,11 @@
 - `site/images/` — Project thumbnails (placeholder directory)
 
 ## cdk/ — AWS CDK Infrastructure (Python)
-- `cdk/app.py` — CDK app entry point
+- `cdk/app.py` — CDK app entry point (account 420665616125, us-east-1)
 - `cdk/cdk.json` — CDK configuration (uses `uv run`)
+- `cdk/cdk.context.json` — Cached Route 53 hosted zone lookup (needed for CI)
 - `cdk/requirements.txt` — Python dependencies (aws-cdk-lib, constructs)
-- `cdk/stacks/portfolio_stack.py` — Single stack: S3 + CloudFront (OAC) + ACM + Route 53 + preview bucket + GitHub OIDC role
+- `cdk/stacks/portfolio_stack.py` — Single stack: S3 + CloudFront (OAC) + ACM + Route 53 + preview bucket + GitHub OIDC role (imported)
 
 ## .github/workflows/ — CI/CD
 - `.github/workflows/deploy.yml` — Deploy on push to main (CDK deploy + S3 sync + CF invalidation)

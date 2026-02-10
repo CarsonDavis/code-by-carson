@@ -65,21 +65,30 @@ After that, set the `AWS_ROLE_ARN` GitHub secret to the output `GitHubActionsRol
 
 ## 2026-02-09 — Landing Page Redesign
 ### What changed
-Evolved the minimal portfolio page into a full personal landing page with multiple sections:
+Evolved the minimal portfolio page into a full personal landing page.
 
-- **Hero**: Updated tagline to "Engineer, researcher, writer, maker. Building software, collecting cameras, and cooking dinner." Nav links changed to GitHub, Blog, Scholar.
-- **Things I've Built**: Renamed from "Projects". Same 3 cards (Bass Practice, Lens Calculator, Goodreads Stats).
-- **Writing** (new): 4 featured blog posts as a clean text list — Book Cover Design, Shooting Film, Troublesome Translations, Kitchen Knives. Links to madebycarson.com.
-- **Research** (new): NASA/NSSTC blurb, "33 publications and presentations" stat, Google Scholar link. Displayed as a styled card.
-- **Cooking** (new): Instagram grid screenshot image + link to @carsons_cooking. Image file (`site/images/instagram-grid.png`) to be provided by user.
-- **Media** (new): No Dumb Questions podcast #199, COVID Face Shields news interview. Compact text list.
-- **Footer**: Added GitHub, Blog, Scholar, Instagram link row above copyright.
+- **Hero**: Title changed to "Carson Davis", tagline: "Software engineer with too many hobbies and not enough shelf space." Removed nav links (redundant with in-body links).
+- **Live Sites**: Renamed from "Projects". Same 3 cards + "Visit my GitHub →" button.
+- **Deep Dives** (new): 2x2 image card grid with blog post cover images from S3. Book Cover Design, Shooting Film, Troublesome Translations, Kitchen Knives. "Read more posts →" button.
+- **Cooking** (new): Side-by-side layout — Instagram grid image (60%) + description and @carsons_cooking link.
+- **Media** (new): No Dumb Questions podcast #199, COVID Face Shields news interview.
+- **Research** (new): 7 featured publications list (first-author + NASA-titled, spanning AGU/EGU/IGARSS/SoutheastCon, 2019-2023). "View all on Google Scholar →" button.
+- **Footer**: GitHub, Blog, Scholar, Instagram link row + copyright.
+- **Open Graph meta tags**: Title, description, and composite OG image for link previews.
+
+### Section order
+Hero → Live Sites → Deep Dives → Cooking → Media → Research → Footer
 
 ### Files modified
-- `site/index.html` — restructured from 1 section to 6 content sections
-- `site/style.css` — added writing, research, cooking, media, footer-links styles; added `--section-max` variable for narrower content sections
+- `site/index.html` — full restructure with 6 content sections + OG meta tags
+- `site/style.css` — deep-dives grid, cooking side-by-side layout, publication list, media list, footer links, button-style section-more links, all sections at 960px width
+
+### Files added
+- `site/images/instagram-grid.png` — Instagram grid screenshot
+- `site/images/kitchen-knives.png` — Japanese knife photo for Deep Dives card
+- `site/images/og-image.png` — 1200x630 composite image for link previews (6-panel mosaic)
 
 ### Verification
 - Local preview via `python3 -m http.server` — all sections render correctly
-- Cooking section shows broken image (expected — user needs to provide `instagram-grid.png`)
-- All external links verified in HTML (correct URLs for blog posts, Scholar, Instagram, podcast, YouTube)
+- All external links verified in HTML
+- OG image generated at correct dimensions (1200x630)

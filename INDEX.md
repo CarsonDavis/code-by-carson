@@ -7,9 +7,9 @@
 - `INDEX.md` — This file; map of the repository
 
 ## site/ — Static Portfolio Site
-- `site/index.html` — Landing page: hero, project grid, writing, research, cooking, media sections
-- `site/style.css` — Dark minimalist stylesheet (CSS Grid, responsive, section-level layout)
-- `site/images/` — Project thumbnails and Instagram grid screenshot
+- `site/index.html` — Landing page: hero, live sites, deep dives, cooking, media, research sections + OG meta tags
+- `site/style.css` — Dark minimalist stylesheet (CSS Grid, responsive, all sections at 960px)
+- `site/images/` — Project thumbnails, Instagram grid, kitchen knives photo, OG composite image
 
 ## cdk/ — AWS CDK Infrastructure (Python)
 - `cdk/app.py` — CDK app entry point (account 420665616125, us-east-1)

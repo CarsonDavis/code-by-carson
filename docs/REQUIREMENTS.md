@@ -13,9 +13,9 @@ A minimalist portfolio website showcasing Carson's coding projects. Inspired by
 - [x] Grid adapts gracefully from desktop to mobile
 
 ### R2 - Hero / Header
-- [x] Site title: "CodeByCarson"
-- [x] Short tagline / bio
-- [x] Minimal navigation (external links in hero nav)
+- [x] Site title: "Carson Davis"
+- [x] Tagline: "Software engineer with too many hobbies and not enough shelf space."
+- [x] No nav links in hero (links are in-body and footer)
 
 ### R3 - Visual Style
 - [x] Clean, minimalist aesthetic (znah.net-inspired)
@@ -45,13 +45,17 @@ A minimalist portfolio website showcasing Carson's coding projects. Inspired by
 - [x] OIDC-based AWS authentication — working
 
 ### R8 - Landing Page Sections
-- [x] Writing section — 4 featured blog posts with "More on the blog" link
-- [x] Research section — NASA/NSSTC blurb, publication count, Google Scholar link
-- [x] Cooking section — Instagram grid image + @carsons_cooking link
-- [ ] Cooking section image — user needs to provide `site/images/instagram-grid.png`
+- [x] Live Sites section — 3 project cards + "Visit my GitHub →" button
+- [x] Deep Dives section — 2x2 image card grid with blog cover images + "Read more posts →" button
+- [x] Cooking section — side-by-side layout (image + text) + "Follow @carsons_cooking →" button
 - [x] Media section — No Dumb Questions podcast, COVID Face Shields interview
-- [x] Updated hero tagline and nav links
+- [x] Research section — 7 featured publications list + "View all on Google Scholar →" button
 - [x] Footer link row (GitHub, Blog, Scholar, Instagram)
+
+### R9 - Open Graph / Link Previews
+- [x] OG meta tags (title, description, image, url)
+- [x] Twitter card meta tags
+- [x] Composite OG image (1200x630, 6-panel mosaic)
 
 ## Non-Goals (for now)
 - No tutorials section
@@ -68,5 +72,4 @@ A minimalist portfolio website showcasing Carson's coding projects. Inspired by
 - **Auth**: GitHub OIDC (no long-lived AWS access keys)
 
 ## Open Questions
-- Thumbnail images for project cards (currently placeholder)
-- Instagram grid screenshot needed for cooking section
+- Favicon for browser tab

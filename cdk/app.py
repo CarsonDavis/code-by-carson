@@ -7,7 +7,7 @@ app = cdk.App()
 PortfolioStack(
     app,
     "CodeByCarsonStack",
-    env=cdk.Environment(region="us-east-1"),
+    env=cdk.Environment(account="420665616125", region="us-east-1"),
 )
 
 app.synth()

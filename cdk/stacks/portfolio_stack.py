@@ -57,12 +57,12 @@ class PortfolioStack(Stack):
                 origin=origins.S3BucketOrigin.with_origin_access_control(site_bucket),
                 viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
                 compress=True,
+                response_headers_policy=cloudfront.ResponseHeadersPolicy.SECURITY_HEADERS,
             ),
             domain_names=[DOMAIN, f"www.{DOMAIN}"],
             certificate=certificate,
             default_root_object="index.html",
             minimum_protocol_version=cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
-            response_headers_policy=cloudfront.ResponseHeadersPolicy.SECURITY_HEADERS,
             error_responses=[
                 cloudfront.ErrorResponse(
                     http_status=403,
@@ -121,12 +121,11 @@ class PortfolioStack(Stack):
             )
         )
 
-        # ── GitHub OIDC provider ──────────────────────────────────
-        oidc_provider = iam.OpenIdConnectProvider(
+        # ── GitHub OIDC provider (import existing) ─────────────────
+        oidc_provider = iam.OpenIdConnectProvider.from_open_id_connect_provider_arn(
             self,
             "GitHubOidc",
-            url="https://token.actions.githubusercontent.com",
-            client_ids=["sts.amazonaws.com"],
+            f"arn:aws:iam::{self.account}:oidc-provider/token.actions.githubusercontent.com",
         )
 
         # ── IAM role for GitHub Actions ───────────────────────────

@@ -21,6 +21,8 @@ A minimalist portfolio website showcasing Carson's coding projects. Inspired by
 - [x] Clean, minimalist aesthetic (znah.net-inspired)
 - [x] Typography-focused, not cluttered
 - [x] Dark-only modern design
+- [x] Dark Reader-matched color palette (warmer tones: `#181a1b` bg, `#e8e6e3` text, `#3c4143` borders)
+- [x] Dark Reader extension blocked via `darkreader-lock` meta tag
 
 ### R4 - Projects to Feature (initial set)
 - [x] Bass Practice Schedule — https://bass-practice.codebycarson.com/

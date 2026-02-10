@@ -7,8 +7,8 @@
 - `INDEX.md` — This file; map of the repository
 
 ## site/ — Static Portfolio Site
-- `site/index.html` — Landing page: hero, live sites, deep dives, cooking, media, research sections + OG meta tags
-- `site/style.css` — Dark minimalist stylesheet (CSS Grid, responsive, all sections at 960px)
+- `site/index.html` — Landing page: hero, live sites, deep dives, cooking, media, research sections + OG meta tags + Dark Reader lock
+- `site/style.css` — Dark minimalist stylesheet (CSS Grid, responsive, all sections at 960px, Dark Reader-matched palette)
 - `site/images/` — Project thumbnails, Instagram grid, kitchen knives photo, OG composite image
 
 ## cdk/ — AWS CDK Infrastructure (Python)

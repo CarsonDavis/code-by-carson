@@ -92,3 +92,25 @@ Hero → Live Sites → Deep Dives → Cooking → Media → Research → Footer
 - Local preview via `python3 -m http.server` — all sections render correctly
 - All external links verified in HTML
 - OG image generated at correct dimensions (1200x630)
+
+## 2026-02-10 — Dark Reader Color Match & Extension Block
+### What changed
+Adopted Dark Reader's default dark-mode palette as the site's native colors, then blocked Dark Reader from double-transforming the page.
+
+### CSS variable changes (`site/style.css`)
+| Variable       | Old         | New         |
+|---------------|-------------|-------------|
+| `--bg`        | `#0e0e0e`   | `#181a1b`   |
+| `--surface`   | `#1a1a1a`   | `#1e2021`   |
+| `--border`    | `#2a2a2a`   | `#3c4143`   |
+| `--text`      | `#e0e0e0`   | `#e8e6e3`   |
+| `--text-muted`| `#888`      | `#a8a095`   |
+| `--accent`    | unchanged   | `#8ab4f8`   |
+| `--accent-hover`| unchanged | `#aecbfa`   |
+
+### Meta tags added (`site/index.html`)
+- `<meta name="darkreader-lock">` — Dark Reader's official opt-out; extension skips the page
+- `<meta name="color-scheme" content="dark">` — tells browsers the site is natively dark-themed
+
+### Verification
+- Pending: open locally with Dark Reader enabled, confirm it shows as disabled/skipped
